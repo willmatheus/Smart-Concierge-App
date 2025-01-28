@@ -1,17 +1,14 @@
-package com.example.smartconciergeapp.ui.theme.screens
+package com.example.smartconciergeapp.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.example.smartconciergeapp.service.WebSocketService
 
 @Composable
 fun NotificationScreen(
-    webSocketService: WebSocketService,
     visitorName: String,
     visitorCPF: String,
     onActionComplete: () -> Unit
@@ -36,7 +33,6 @@ fun NotificationScreen(
                 Button(
                     onClick = {
                         isAccepted = false
-                        webSocketService.sendVisitorResponse(false)
                         onActionComplete()
                     },
                     modifier = Modifier.padding(horizontal = 8.dp)
@@ -46,7 +42,6 @@ fun NotificationScreen(
                 Button(
                     onClick = {
                         isAccepted = true
-                        webSocketService.sendVisitorResponse(true)
                         onActionComplete()
                     },
                     modifier = Modifier.padding(horizontal = 8.dp)
