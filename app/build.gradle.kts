@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.smartconciergeapp"
+    namespace = "com.android.smartconcierge"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.smartconciergeapp"
+        applicationId = "com.android.smartconcierge"
         minSdk = 31
         targetSdk = 34
         versionCode = 1

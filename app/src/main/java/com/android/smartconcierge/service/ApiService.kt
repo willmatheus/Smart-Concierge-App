@@ -1,4 +1,4 @@
-package com.example.smartconciergeapp.service
+package com.android.smartconcierge.service
 
 import retrofit2.Call
 import retrofit2.http.Body

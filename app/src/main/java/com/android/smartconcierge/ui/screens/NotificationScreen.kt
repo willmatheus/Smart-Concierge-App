@@ -1,4 +1,4 @@
-package com.example.smartconciergeapp.ui.screens
+package com.android.smartconcierge.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*

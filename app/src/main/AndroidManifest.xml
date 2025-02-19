@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.smartconcierge"
     xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Declarações de permissões -->
@@ -24,7 +25,7 @@
         android:usesCleartextTraffic="true">
 
         <service
-            android:name=".service.notification.MessagingService"
+            android:name="com.android.smartconcierge.service.notification.MessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -34,7 +35,7 @@
 
         <!-- Activity principal -->
         <activity
-            android:name=".MainActivity"
+            android:name="com.android.smartconcierge.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.SmartConciergeApp">
             <intent-filter>

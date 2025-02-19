@@ -1,6 +1,6 @@
-package com.example.smartconciergeapp.data
+package com.android.smartconcierge.data
 
-import com.example.smartconciergeapp.service.ApiService
+import com.android.smartconcierge.service.ApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

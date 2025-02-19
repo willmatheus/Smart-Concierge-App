@@ -1,4 +1,4 @@
-package com.example.smartconciergeapp.ui.screens
+package com.android.smartconcierge.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
@@ -12,10 +12,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.smartconciergeapp.data.RetrofitClient
-import com.example.smartconciergeapp.service.LoginRequest
-import com.example.smartconciergeapp.service.LoginResponse
-import com.example.smartconciergeapp.service.PreferencesHelper
+import com.android.smartconcierge.data.RetrofitClient
+import com.android.smartconcierge.service.LoginRequest
+import com.android.smartconcierge.service.LoginResponse
+import com.android.smartconcierge.service.PreferencesHelper
 import retrofit2.Call
 
 

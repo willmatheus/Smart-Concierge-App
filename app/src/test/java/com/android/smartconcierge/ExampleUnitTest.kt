@@ -1,4 +1,4 @@
-package com.example.smartconciergeapp
+package com.android.smartconcierge
 
 import org.junit.Test
 

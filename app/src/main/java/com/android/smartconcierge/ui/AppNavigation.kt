@@ -1,4 +1,4 @@
-package com.example.smartconciergeapp.ui
+package com.android.smartconcierge.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -9,9 +9,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.smartconciergeapp.service.PreferencesHelper
-import com.example.smartconciergeapp.ui.screens.LoginScreen
-import com.example.smartconciergeapp.ui.screens.NotificationScreen
+import com.android.smartconcierge.service.PreferencesHelper
+import com.android.smartconcierge.ui.screens.LoginScreen
+import com.android.smartconcierge.ui.screens.NotificationScreen
 
 @Composable
 fun AppNavigation() {

@@ -1,4 +1,4 @@
-package com.example.smartconciergeapp.ui
+package com.android.smartconcierge.ui
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.*

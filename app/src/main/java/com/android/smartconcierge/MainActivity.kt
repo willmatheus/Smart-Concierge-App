@@ -1,4 +1,4 @@
-package com.example.smartconciergeapp
+package com.android.smartconcierge
 
 import android.os.Build
 import android.os.Bundle
@@ -9,8 +9,8 @@ import androidx.core.content.ContextCompat
 import android.Manifest
 import android.content.pm.PackageManager
 import android.util.Log
-import com.example.smartconciergeapp.ui.AppNavigation
-import com.example.smartconciergeapp.ui.SmartConciergeTheme
+import com.android.smartconcierge.ui.AppNavigation
+import com.android.smartconcierge.ui.SmartConciergeTheme
 import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : ComponentActivity() {

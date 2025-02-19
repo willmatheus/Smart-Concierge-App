@@ -1,4 +1,4 @@
-package com.example.smartconciergeapp.service
+package com.android.smartconcierge.service
 
 import android.content.Context
 import android.content.SharedPreferences

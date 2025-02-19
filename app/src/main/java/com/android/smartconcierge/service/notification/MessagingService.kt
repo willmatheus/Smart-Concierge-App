@@ -1,4 +1,4 @@
-package com.example.smartconciergeapp.service.notification
+package com.android.smartconcierge.service.notification
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -8,7 +8,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.util.Log
 import androidx.core.app.NotificationCompat
-import com.example.smartconciergeapp.MainActivity
+import com.android.smartconcierge.MainActivity
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
