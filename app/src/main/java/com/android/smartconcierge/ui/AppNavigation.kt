@@ -10,8 +10,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.android.smartconcierge.service.PreferencesHelper
+import com.android.smartconcierge.ui.screens.HomeScreen
 import com.android.smartconcierge.ui.screens.LoginScreen
-import com.android.smartconcierge.ui.screens.NotificationScreen
 
 @Composable
 fun AppNavigation() {
@@ -32,7 +32,7 @@ fun AppNavigation() {
             LoginScreen(navController = navController)
         }
         composable("home") {
-            NotificationScreen(
+            HomeScreen(
                 visitorName = visitorName,
                 visitorCPF = visitorCPF,
                 onActionComplete = {

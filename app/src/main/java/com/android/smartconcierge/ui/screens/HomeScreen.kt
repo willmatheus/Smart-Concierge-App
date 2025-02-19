@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun NotificationScreen(
+fun HomeScreen(
     visitorName: String,
     visitorCPF: String,
     onActionComplete: () -> Unit
