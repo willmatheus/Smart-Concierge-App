@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SmartConciergeApp</string>
+
+    <!-- Notifications -->
+    <string name="boot_notification_title">Check your last requests!</string>
+    <string name="boot_notification_body">Check if your request historic and ensure that there are no pending new requests</string>
+
 </resources>
