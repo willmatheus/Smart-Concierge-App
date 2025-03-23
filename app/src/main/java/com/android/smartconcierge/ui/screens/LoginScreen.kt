@@ -13,11 +13,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.android.smartconcierge.data.RetrofitClient
+import com.android.smartconcierge.service.AppPreferences
+import com.android.smartconcierge.service.AppPreferences.PreferencesKeys.USER_TOKEN
 import com.android.smartconcierge.service.LoginRequest
 import com.android.smartconcierge.service.LoginResponse
-import com.android.smartconcierge.service.PreferencesHelper
 import retrofit2.Call
-
 
 @Composable
 fun LoginScreen(navController: NavHostController) {
@@ -25,7 +25,7 @@ fun LoginScreen(navController: NavHostController) {
     var cpf by remember { mutableStateOf("") }
     var apartmentNumber by remember { mutableStateOf("") }
     var errorMessage by remember { mutableStateOf("") }
-    val preferencesHelper = PreferencesHelper(context)
+    val appPreferences = AppPreferences(context)
 
     Column(
         modifier = Modifier
@@ -78,7 +78,7 @@ fun LoginScreen(navController: NavHostController) {
                         if (response.isSuccessful) {
                             val token = response.body()?.token
                             if (token != null) {
-                                preferencesHelper.saveToken(token)
+                                appPreferences.savePref(USER_TOKEN, token)
                                 navController.navigate("home")
                             } else {
                                 errorMessage = "Erro ao salvar token."

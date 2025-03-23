@@ -9,16 +9,18 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.android.smartconcierge.service.PreferencesHelper
 import com.android.smartconcierge.ui.screens.HomeScreen
 import com.android.smartconcierge.ui.screens.LoginScreen
+import com.android.smartconcierge.enums.Screens.*
+import com.android.smartconcierge.service.AppPreferences
+import com.android.smartconcierge.service.AppPreferences.PreferencesKeys.USER_TOKEN
 
 @Composable
 fun AppNavigation() {
     val navController = rememberNavController()
     val context = LocalContext.current
-    val preferencesHelper = PreferencesHelper(context)
-    val token = preferencesHelper.getToken()
+    val appPreferences = AppPreferences(context)
+    val token = appPreferences.getPrefString(USER_TOKEN)
 
     var visitorName by remember { mutableStateOf("") }
     var visitorCPF by remember { mutableStateOf("") }
@@ -26,12 +28,12 @@ fun AppNavigation() {
 
     NavHost(
         navController = navController,
-        startDestination = if (token != null) "home" else "login"
+        startDestination = if (token != null) MAIN_SCREEN.name else LOGIN_SCREEN.name
     ) {
-        composable("login") {
+        composable(LOGIN_SCREEN.name) {
             LoginScreen(navController = navController)
         }
-        composable("home") {
+        composable(MAIN_SCREEN.name) {
             HomeScreen(
                 visitorName = visitorName,
                 visitorCPF = visitorCPF,
