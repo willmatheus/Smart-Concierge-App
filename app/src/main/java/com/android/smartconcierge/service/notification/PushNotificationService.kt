@@ -5,21 +5,23 @@ import android.util.Log
 import com.android.smartconcierge.extensions.createNotificationChannel
 import com.android.smartconcierge.extensions.getMainActivityContentIntent
 import com.android.smartconcierge.extensions.getNotificationBuilder
-import com.android.smartconcierge.extensions.sendNotification
+import com.android.smartconcierge.extensions.isUserLoggedIn
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
-class MessagingService : FirebaseMessagingService() {
+class PushNotificationService : FirebaseMessagingService() {
     private lateinit var notificationManager: NotificationManager
 
     override fun onMessageReceived(message: RemoteMessage) {
-        message.notification?.let {
-            val title = it.title ?: "Standard"
-            val body = it.body ?: "Standard body"
-            sendNotification(getNotificationBuilder(
-                title, body, getMainActivityContentIntent()),
-                notificationManager
-            )
+        if (message.notification != null && isUserLoggedIn()) {
+            val title = message.notification!!.title ?: "Standard"
+            val body = message.notification!!.body ?: "Standard body"
+
+            val notification = getNotificationBuilder(
+                title, body, getMainActivityContentIntent()
+            ).build()
+
+            notificationManager.notify(NOTIFICATION_ID, notification)
         }
     }
 

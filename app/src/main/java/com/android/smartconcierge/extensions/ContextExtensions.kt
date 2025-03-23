@@ -9,8 +9,9 @@ import android.graphics.Color
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.android.smartconcierge.MainActivity
-import com.android.smartconcierge.service.notification.MessagingService.Companion.CHANNEL_ID
-import com.android.smartconcierge.service.notification.MessagingService.Companion.NOTIFICATION_ID
+import com.android.smartconcierge.service.AppPreferences
+import com.android.smartconcierge.service.AppPreferences.PreferencesKeys.USER_TOKEN
+import com.android.smartconcierge.service.notification.PushNotificationService.Companion.CHANNEL_ID
 
 fun Context.createNotificationChannel() : NotificationManager {
     val notificationManager =
@@ -30,19 +31,14 @@ fun Context.createNotificationChannel() : NotificationManager {
     return notificationManager
 }
 
-fun Context.getNotificationBuilder(title: String, body: String, intent: PendingIntent) : NotificationCompat.Builder {
-    return NotificationCompat.Builder(applicationContext, CHANNEL_ID)
-        .setSmallIcon(android.R.drawable.ic_dialog_info) // icon
-        .setContentTitle(title) // title
-        .setContentText(body) // text body
+fun Context.getNotificationBuilder(title: String, body: String, pendingIntent: PendingIntent) =
+    NotificationCompat.Builder(applicationContext, CHANNEL_ID)
+        .setSmallIcon(android.R.drawable.ic_dialog_info)
+        .setContentTitle(title)
+        .setContentText(body)
         .setPriority(NotificationCompat.PRIORITY_HIGH)
-        .setDefaults(NotificationCompat.DEFAULT_ALL)// Priority
-        .setContentIntent(intent)
-}
-
-fun Context.sendNotification(notificationBuilder: NotificationCompat.Builder, notificationManager: NotificationManager) {
-    notificationManager.notify(NOTIFICATION_ID, notificationBuilder.build())
-}
+        .setDefaults(NotificationCompat.DEFAULT_ALL)
+        .setContentIntent(pendingIntent)
 
 fun Context.getMainActivityContentIntent() : PendingIntent {
     val intent = Intent(this, MainActivity::class.java)
@@ -51,3 +47,5 @@ fun Context.getMainActivityContentIntent() : PendingIntent {
         PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
     )
 }
+
+fun Context.isUserLoggedIn() = AppPreferences(applicationContext).getPrefString(USER_TOKEN) != null

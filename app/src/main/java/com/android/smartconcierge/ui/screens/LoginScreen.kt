@@ -1,5 +1,7 @@
 package com.android.smartconcierge.ui.screens
 
+import android.app.Activity
+import android.content.Intent
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
@@ -7,11 +9,10 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
+import com.android.smartconcierge.MainActivity
 import com.android.smartconcierge.data.RetrofitClient
 import com.android.smartconcierge.service.AppPreferences
 import com.android.smartconcierge.service.AppPreferences.PreferencesKeys.USER_TOKEN
@@ -20,12 +21,11 @@ import com.android.smartconcierge.service.LoginResponse
 import retrofit2.Call
 
 @Composable
-fun LoginScreen(navController: NavHostController) {
-    val context = LocalContext.current
+fun LoginScreen(activity: Activity) {
     var cpf by remember { mutableStateOf("") }
     var apartmentNumber by remember { mutableStateOf("") }
     var errorMessage by remember { mutableStateOf("") }
-    val appPreferences = AppPreferences(context)
+    val appPreferences = AppPreferences(activity)
 
     Column(
         modifier = Modifier
@@ -79,7 +79,9 @@ fun LoginScreen(navController: NavHostController) {
                             val token = response.body()?.token
                             if (token != null) {
                                 appPreferences.savePref(USER_TOKEN, token)
-                                navController.navigate("home")
+                                val intent = Intent(activity, MainActivity::class.java)
+                                activity.startActivity(intent)
+                                activity.finish()
                             } else {
                                 errorMessage = "Erro ao salvar token."
                             }

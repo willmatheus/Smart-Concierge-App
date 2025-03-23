@@ -24,7 +24,7 @@
         android:usesCleartextTraffic="true">
 
         <service
-            android:name="com.android.smartconcierge.service.notification.MessagingService"
+            android:name="com.android.smartconcierge.service.notification.PushNotificationService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -42,7 +42,25 @@
 
         <activity
             android:name="com.android.smartconcierge.MainActivity"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:theme="@style/Theme.SmartConciergeApp">
+        </activity>
+
+        <activity
+            android:name=".UserLoginActivity"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:theme="@style/Theme.SmartConciergeApp">
+        </activity>
+
+        <activity
+            android:name=".UserSwitchActivity"
             android:exported="true"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
             android:theme="@style/Theme.SmartConciergeApp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
